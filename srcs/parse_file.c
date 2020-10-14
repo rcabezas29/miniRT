@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 08:36:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/02 11:29:10 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/14 11:06:15 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	parseLight(t_minirt *r)
 	t_object	*light;
 
 	light = malloc(sizeof(t_object));
-	light->point1 = split_vec(r->split[1]);
+	light->position = split_vec(r->split[1]);
 	light->ratio = ft_atof(r->split[2]);
 	light->color = split_rgb(r->split[3]);
 	ft_lstadd_back(&r->light_list, ft_lstnew(light));

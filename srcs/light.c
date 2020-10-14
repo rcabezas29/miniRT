@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 09:23:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/13 12:10:39 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/14 11:23:48 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 t_color     apply_intensity(float intensity, t_color color)
 {
-    if (intensity >= 1)
-        return (color);
     color.r *= intensity;
     color.g *= intensity;
     color.b *= intensity;
@@ -30,15 +28,20 @@ t_color     raytrace_light(t_minirt *r)
     t_object    *light;
     t_ray       light_ray;
 
+    r->b = 2147483647;
     tmp_light = malloc(sizeof(t_list));
     tmp_obj = malloc(sizeof(t_list));
     tmp_light = r->light_list;
     tmp_obj = r->object_list;
-    color = color_mix(r->obj->color, apply_intensity(r->ambient.intensity, r->ambient.color));
+    if (r->ambient.intensity == 0)
+        color = create_rgb(0, 0, 0);
+    else
+        color = color_mix(r->obj->color, apply_intensity(r->ambient.intensity, r->ambient.color));
     while (tmp_light)
     {
         light = tmp_light->content;
         light_ray.dir = normalize_vec(resta_vec(r->inter_point, light->position));
+        light_ray.origin = light->position;
         while (tmp_obj)
         {
             light_intersect(r, tmp_obj->content, light_ray);
@@ -75,7 +78,7 @@ t_color    apply_light(t_minirt *r, t_ray light_ray, t_object *light, t_object *
         color =  ori_color;
     else
     {
-        l_color = apply_intensity(light->ratio, light->color);
+        l_color = apply_intensity(light->ratio / r->b, light->color);
         color = color_mix(obj->color, l_color);
     }
     return (color);
