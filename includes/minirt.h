@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/14 09:30:44 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/15 10:27:31 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ t_vec   vec_div(t_vec v1, float x);
 t_color		create_rgb(int r, int g, int b);
 t_color     color_mix(t_color c1, t_color c2);
 void    color_put(t_minirt *r, int x, int y);
+t_color apply_attenuation(t_minirt *r, t_color color);
 
 //raytrace_start.c
 void    raytrace_start(t_minirt *r);
