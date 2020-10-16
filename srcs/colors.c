@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 12:26:24 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/15 14:09:36 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/16 12:49:05 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 t_color     apply_attenuation(t_minirt *r, t_color color)
 {
-    color.r = color.r - (100 / r->b);
-    color.g = color.g - (100 / r->b);
-    color.b = color.b - (100 / r->b);
-    if (color.r < 0)
-        color.r = 0;
-    if (color.g < 0)
-        color.g = 0;
-    if (color.b < 0)
-        color.b = 0;
+    color.r = color.r - r->b;
+    color.g = color.g - r->b;
+    color.b = color.b - r->b;
     return (color);
 }
 

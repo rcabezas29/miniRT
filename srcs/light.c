@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 09:23:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/15 12:16:32 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/16 13:18:51 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ t_color    apply_light(t_minirt *r, t_ray light_ray, t_object *light, t_object *
 
     color = ori_color;
     light_ray_length = vector_length(resta_vec(r->inter_point, light_ray.origin));
-    if (light_ray_length > r->b + 0.005)
+    if (light_ray_length > r->b + 0.05)
         color =  ori_color;
     else if (r->b != 2147483647)
     {
         l_color = apply_intensity(light->ratio, light->color);
+        l_color = apply_attenuation(r, l_color);
         color = color_mix(obj->color, l_color);
-        color = apply_attenuation(r, color);
     }
     return (color);
 }
