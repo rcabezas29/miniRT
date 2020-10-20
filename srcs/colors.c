@@ -14,9 +14,9 @@
 
 t_color     apply_attenuation(t_minirt *r, t_color color)
 {
-    color.r = color.r - r->b;
-    color.g = color.g - r->b;
-    color.b = color.b - r->b;
+    color.r = color.r + (300 / r->b);
+    color.g = color.g + (300 / r->b);
+    color.b = color.b + (300 / r->b);
     return (color);
 }
 
