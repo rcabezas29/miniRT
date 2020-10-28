@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/28 20:22:13 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/28 21:02:14 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,11 +136,6 @@ void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    triangle(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 
 //objects_s
-void    sphere_s(t_minirt *r, t_object *obj, t_ray cam_ray);
-void    plane_s(t_minirt *r, t_object *obj, t_ray cam_ray);
-void    square_s(t_minirt *r, t_object *obj, t_ray cam_ray);
-void    cylinder_s(t_minirt *r, t_object *obj, t_ray cam_ray);
-void    triangle_s(t_minirt *r, t_object *obj, t_ray cam_ray);
 t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point);
 
 //light.c
