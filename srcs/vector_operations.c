@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:43:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/05 13:29:29 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/28 20:12:40 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,17 @@ t_vec   vec_div(t_vec v1, float x)
 	v.y = v1.y / x;
 	v.z = v1.z / x;
 	return (v);
+}
+
+t_vec	get_normal(t_minirt *r)
+{
+	t_vec	norm_vec;
+
+	if (r->obj->id == 1)
+		norm_vec = (normalize_vec(resta_vec(r->inter_point, r->obj->position)));
+	if (r->obj->id == 2 || r->obj->id == 3 || r->obj->id == 5)
+		norm_vec = normalize_vec(r->obj->normal);
+	/*else if (r->obj->id == 4)
+		norm_vec = cylinder_normal(r->obj, r->inter_point);*/
+	return (norm_vec);
 }
