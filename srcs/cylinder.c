@@ -6,17 +6,41 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 10:15:46 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/28 21:01:20 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/28 21:40:27 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-/*t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point)
+t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point)
 {
+	t_vec	normal;
+	float	solucion1;
+	float	solucion2;
+	t_vec	vec_cyl;
+	t_vec 	p_height;
+
+	vec_cyl = normalize_vec(cylinder->normal);
+	solucion1 = (pow(inter_point.x - cylinder->position.x, 2) +
+		(pow(inter_point.y - cylinder->position.y, 2) +
+		(pow(inter_point.z - cylinder->position.z, 2))));
+	solucion2 = pow(cylinder->diameter / 2 ,2) +
+		pow((vec_cyl.x * (inter_point.x - cylinder->position.x) + vec_cyl.y *
+		(inter_point.y - cylinder->position.y) + vec_cyl.z *
+		(inter_point.z - cylinder->position.z)), 2);
+	if (solucion1 == solucion2)
+	{
+		p_height = suma_vec(vec_mult(vec_cyl, sqrt(pow(vector_length(resta_vec(inter_point, cylinder->position)), 2) -
+			pow((cylinder->diameter / 2), 2))), cylinder->position);
+		normal = normalize_vec(resta_vec(inter_point, p_height));
+	}
+	else
+	{
+		normal = vec_cyl;
+	}
 	
-	return ();
-}*/
+	return (normal);
+}
 
 void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 {
