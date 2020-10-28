@@ -6,11 +6,17 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 10:15:46 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/13 12:06:40 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/28 20:12:21 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/*t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point)
+{
+	
+	return ();
+}*/
 
 void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 {

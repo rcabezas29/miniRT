@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/16 13:17:30 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/10/28 20:22:13 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,13 @@ t_vec   suma_vec(t_vec v1, t_vec v2);
 t_vec   resta_vec(t_vec v1, t_vec v2);
 t_vec   vec_mult(t_vec v1, float x);
 t_vec   vec_div(t_vec v1, float x);
+t_vec	get_normal(t_minirt *r);
 
 //colors.c
 t_color		create_rgb(int r, int g, int b);
 t_color     color_mix(t_color c1, t_color c2);
 void    color_put(t_minirt *r, int x, int y);
-t_color apply_attenuation(t_minirt *r, t_color color);
+t_color suma_color(t_color color1, t_color color2);
 
 //raytrace_start.c
 void    raytrace_start(t_minirt *r);
@@ -140,12 +141,13 @@ void    plane_s(t_minirt *r, t_object *obj, t_ray cam_ray);
 void    square_s(t_minirt *r, t_object *obj, t_ray cam_ray);
 void    cylinder_s(t_minirt *r, t_object *obj, t_ray cam_ray);
 void    triangle_s(t_minirt *r, t_object *obj, t_ray cam_ray);
+t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point);
 
 //light.c
 t_color     raytrace_light(t_minirt *r);
 t_color     apply_intensity(float intensity, t_color color);
 void    light_intersect(t_minirt *r, t_object *obj, t_ray light_ray);
-t_color    apply_light(t_minirt *r, t_ray light_ray, t_object *light, t_object *obj, t_color ori_color);
+t_color    apply_light(t_minirt *r, t_ray light_ray, t_object *light, t_color ori_color, t_vec normal);
 
 //color.c
 void    create_cameras(t_minirt *r);
