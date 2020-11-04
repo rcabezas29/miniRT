@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/04 20:57:15 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 21:06:12 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int     main(int argc, char **argv)
     }
     if (argc == 3)
     {
-        if (!check_format(argv[1], ".rt"))
+        if (!check_format(argv[2], ".rt"))
             handle_errors(r, 2);
-        if (ft_strncmp(argv[2], "--save", 6))
+        if (ft_strncmp(argv[1], "--save", 6))
             handle_errors(r, 3);
         else
             r->save = 1;
