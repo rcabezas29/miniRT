@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/28 21:02:14 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 17:49:57 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@
 
 # include "../libft/includes/libft.h"
 
+# define KEY_PRESS 2
+
 # ifdef __APPLE__
 #  include "mlx_ios/mlx.h"
 #  define A_KEY 0
 #  define W_KEY 13
 #  define S_KEY 1
 #  define D_KEY 2
+#  define E_KEY 14
+#  define Q_KEY 12
 #  define LEFT_KEY 123
 #  define RIGHT_KEY 124
 #  define ESC_KEY 53
@@ -78,6 +82,7 @@ int     main(int argc, char **argv);
 int     check_format(char *arg, char *format);
 void    create_window(t_minirt *r);
 void    setup_ray(t_minirt *r);
+void    refresh_window(t_minirt *r);
 
 //handle_errors.c
 void    handle_errors(t_minirt *rt, int error);
@@ -147,5 +152,8 @@ t_color    apply_light(t_minirt *r, t_ray light_ray, t_object *light, t_color or
 //color.c
 void    create_cameras(t_minirt *r);
 void    select_cam(t_minirt *r);
+
+//keyhook.c
+int     key_press1(int keycode, t_minirt *r);
 
 #endif

@@ -6,11 +6,18 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/09 10:40:27 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 17:49:12 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+void    refresh_window(t_minirt *r)
+{
+    setup_ray(r);
+    raytrace_start(r);
+    mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, r->camera->image.ptr, 0, 0);
+}
 
 void    setup_ray(t_minirt *r)
 {
@@ -25,6 +32,7 @@ void    create_window(t_minirt *r)
 {
     r->win_ptr = mlx_new_window(r->mlx_ptr, r->res.x, r->res.y, "window");
     mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, r->camera->image.ptr, 0, 0);
+    mlx_hook(r->win_ptr, KEY_PRESS, 0, &key_press1, r);
     mlx_loop(r->mlx_ptr);
 }
 
