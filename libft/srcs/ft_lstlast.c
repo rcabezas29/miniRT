@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcabezas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 20:04:23 by rcabezas          #+#    #+#             */
-/*   Updated: 2019/12/10 13:02:30 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:47:20 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst && lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	t_list	*tmp;
+
+	tmp = lst;
+	if (lst)
+		while (tmp->next)
+			tmp = tmp->next;
+	return (tmp);
 }

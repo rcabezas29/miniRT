@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/04 17:49:12 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 19:03:03 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int     main(int argc, char **argv)
     t_minirt    *r;
     
 	r = malloc(sizeof(t_minirt));
+    ft_bzero(r, sizeof(t_minirt));
     if (argc < 2 || argc > 3)
         handle_errors(r, 1);
     r->mlx_ptr = mlx_init();
