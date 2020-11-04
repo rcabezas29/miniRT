@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/04 20:37:47 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:57:46 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "../libft/includes/libft.h"
 
 # define KEY_PRESS 2
+# define BMP_FILE "img.bmp"
 
 # ifdef __APPLE__
 #  include "mlx_ios/mlx.h"
@@ -77,6 +78,7 @@ typedef struct  s_minirt
     int         current_cam;
     float       iar;
 }               t_minirt;
+
 //minirt.c
 int     main(int argc, char **argv);
 int     check_format(char *arg, char *format);
