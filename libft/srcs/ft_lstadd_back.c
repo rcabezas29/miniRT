@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 19:33:59 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/16 09:20:30 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:44:12 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list	*list;
+	t_list	*tmp;
 
-	if (!alst || !new)
-		return ;
-	if (*alst)
+	if (alst)
 	{
-		list = *alst;
-		while (list->next)
-			list = list->next;
-		list->next = new;
+		if (*alst == NULL)
+			*alst = new;
+		else
+		{
+			tmp = ft_lstlast(*(alst));
+			tmp->next = new;
+		}
 	}
-	else
-		*alst = new;
 }

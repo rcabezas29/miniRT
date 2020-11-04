@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcabezas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 19:57:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2019/12/10 13:00:50 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:48:51 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int		ft_lstsize(t_list *lst)
 {
-	int i;
+	int			i;
+	t_list		*tmp;
 
+	tmp = lst;
 	i = 0;
-	while (lst != NULL)
+	while (tmp)
 	{
-		lst = lst->next;
+		tmp = tmp->next;
 		i++;
 	}
 	return (i);

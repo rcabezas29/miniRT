@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcabezas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:27:32 by rcabezas          #+#    #+#             */
-/*   Updated: 2019/12/11 18:39:29 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:47:45 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list		*list;
-	t_list		*element;
-	t_list		*aux;
+	t_list	*new;
+	t_list	*tmp;
+	t_list	*begin;
 
-	if (!lst || !f)
-		return (NULL);
-	aux = lst;
-	if (!(list = ft_lstnew(f(aux->content))))
-		return (NULL);
-	aux = aux->next;
-	while (aux)
+	if (lst)
 	{
-		if (!(element = ft_lstnew(f(aux->content))))
-		{
-			ft_lstclear(&list, del);
+		tmp = lst;
+		if (!(begin = ft_lstnew(f(tmp->content))))
 			return (NULL);
+		tmp = tmp->next;
+		while (tmp)
+		{
+			if (!(new = ft_lstnew(f(tmp->content))))
+			{
+				ft_lstclear(&begin, del);
+				return (NULL);
+			}
+			ft_lstadd_back(&begin, new);
+			tmp = tmp->next;
 		}
-		ft_lstadd_back(&list, element);
-		aux = aux->next;
+		return (begin);
 	}
-	return (list);
+	return (NULL);
 }
