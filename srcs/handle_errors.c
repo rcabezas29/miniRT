@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:57:34 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/01 10:47:18 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 19:40:57 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ void    parsing_objects_errors(t_minirt *r, int error)
 
 int     exiting(t_minirt *r)
 {
+    mlx_destroy_image(r->mlx_ptr, r->camera->image.ptr);
     ft_lstclear(&r->cam_list, free);
     ft_lstclear(&r->object_list, free);
     ft_lstclear(&r->light_list, free);
     mlx_clear_window(r->mlx_ptr, r->win_ptr);
     mlx_destroy_window(r->mlx_ptr, r->win_ptr);
+    exit(EXIT_SUCCESS);
     return (1);
 }
