@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/04 19:35:15 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:36:23 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int     main(int argc, char **argv)
     }
     create_cameras(r);
     select_cam(r);
+    if (r->save == 1)
+        create_bmp(r);
     create_window(r);
     return (1);
 }
