@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/04 21:03:20 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/11 18:49:54 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,8 @@ void    select_cam(t_minirt *r);
 int     key_press1(int keycode, t_minirt *r);
 
 //bmp.c
+void    create_bmp(t_minirt *r, char *file_name);
+void    bitmapinfoheader(t_minirt *r, int fd);
 void    create_bmp(t_minirt *r, char *file_name);
 
 #endif
