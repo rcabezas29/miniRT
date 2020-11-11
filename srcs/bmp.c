@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 20:36:40 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/10 19:39:41 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/11 18:49:17 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    bitmapfileheader(t_minirt *r, int fd)
     file_header = NULL;
 }
 
-void    bitmapifoheader(t_minirt *r, int fd)
+void    bitmapinfoheader(t_minirt *r, int fd)
 {
     unsigned char *info_header;
 
@@ -57,14 +57,17 @@ void    create_bmp(t_minirt *r, char *file_name)
 {
     int     i;
     int     fd;
+    unsigned char padd[3];
 
     i = r->res.y;
+    ft_bzero(padd, 3);
     fd = open(file_name, O_CREAT | O_WRONLY, 0644);
     bitmapfileheader(r, fd);
-    bitmapifoheader(r, fd);
+    bitmapinfoheader(r, fd);
     while (i >= 0)
     {
         write (fd, r->camera->image.addr + (i * r->res.x * r->camera->image.bpp / 8), r->camera->image.line_length);
+        write (fd, padd, (4 - (r->res.x * r->camera->image.bpp / 8) % 4) % 4);
         i--;
     }
     close (fd);
