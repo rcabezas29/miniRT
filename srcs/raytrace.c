@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 08:46:42 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/13 12:05:17 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/16 19:09:54 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void intersect(t_minirt *r, t_ray camera_ray)
 {
     t_list  *tmp;
     
+    r->obj = NULL;
     r->a = 2147483647;
     tmp = r->object_list;
     while (tmp)
