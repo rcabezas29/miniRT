@@ -17,7 +17,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/miniRT",
-            "args": ["cam_1.rt"],
+            "args": ["4.rt"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

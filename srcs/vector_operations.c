@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:43:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/29 17:01:46 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/23 20:55:14 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,13 @@ t_vec	get_normal(t_minirt *r)
 		norm_vec = cylinder_normal(r->obj, r->inter_point);
 	return (norm_vec);
 }
+
+t_vec	mult_fac(t_vec v1, t_vec v2)
+{
+	t_vec v;
+	v.x = v1.x * v2.x;
+	v.y = v1.y * v2.y;
+	v.z = v1.z * v2.z;
+	return (v);
+}
+

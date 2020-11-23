@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/11 18:49:54 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/23 19:41:12 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ t_vec   resta_vec(t_vec v1, t_vec v2);
 t_vec   vec_mult(t_vec v1, float x);
 t_vec   vec_div(t_vec v1, float x);
 t_vec	get_normal(t_minirt *r);
+t_vec   mult_fac(t_vec v1, t_vec v2);
 
 //colors.c
 t_color		create_rgb(int r, int g, int b);
