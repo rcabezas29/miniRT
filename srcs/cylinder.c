@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 10:15:46 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/29 17:16:25 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/23 21:00:37 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,20 @@ void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 {
   	t_inter s;
     
-  	s.a = pow(cam_ray.dir.x, 2) + pow(cam_ray.dir.z, 2);
-  	s.b = 2 * (cam_ray.origin.x * cam_ray.dir.x + cam_ray.origin.z * cam_ray.dir.z);
-  	s.c = pow(cam_ray.origin.x, 2) + pow(cam_ray.origin.z, 2) - pow(obj->diameter / 2, 2);
-  	if ((s.det = pow(s.b, 2) - 4 * s.a * s.c) <= 0)
-   		return ;
-  	s.t1 = (-s.b + sqrt(s.det)) / 2 * s.a;
-  	s.t2 = (-s.b - sqrt(s.det)) / 2 * s.a;
-	s.x = fabs(vector_length(resta_vec(obj->position, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t1)))));
-	s.d1 = sqrt((pow(obj->height / 2, 2)) + pow(obj->diameter / 2, 2));
-	if (s.x > s.d1)
-		return ;
-	if (s.t1 >= 0 && r->a > s.t1)
-  	{
+	s.sub = resta_vec(dot_product(cam_ray,dir, cam_ray.dir), mult_fac(dot_product(cam_ray,dir, cam_ray.dir), dot_product(obj->normal, obj->normal)));
+	s.pvec = mult_fac(cam_ray.dir, resta_vec(resta_vec(vec_mult(cam_ray.origin, 2), vec_mult(obj->position, 2)), obj->normal));
+	s.b = s.pvec.x + s.pvec.y + s.pvec.z;
+	s.tvec = resta_vec(mult_fac(resta_vec(cam_ray.origin, obj->position), resta_vec(cam_ray.origin, obj->position)), mult_fac(resta_vec(cam_ray.origin, obj->position), obj->normal));
+	s.c = s.tvec.x + s.tvec.y + s.tvec.z - obj->diameter / 2;
+	s.det = sqrt(pow(s.b, 2) - 4 * s.a * s.c);
+	s.t1 = (-s.b + s.det) / (2 * s.a);
+	s.t2 = (-s.b - s.det) / (2 * s.a);
+	if (s.t1 > 0 && s.t1 < r->a)
+	{
 		r->a = s.t1;
     	r->obj = tmp->content;
-  	}
-  	if (s.t2 >= 0 && r->a > s.t2)
+	}
+	if (s.t2 >= 0 && r->a > s.t2)
 	{
   		r->a = s.t2;
     	r->obj = tmp->content;
