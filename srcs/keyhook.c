@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:06:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/11 19:34:17 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/24 18:38:02 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ int     key_press1(int keycode, t_minirt *r)
         r->camera->orientation.x -= 0.1;
     else if (keycode == E_KEY)
         r->camera->orientation.x += 0.1;
+    else if (keycode == ONE_KEY)
+        r->current_cam = 1;
+    else if (keycode == TWO_KEY)
+        r->current_cam = 2;
+    else if (keycode == THREE_KEY)
+        r->current_cam = 3;
+    else if (keycode == FOUR_KEY)
+        r->current_cam = 4;
     else if (keycode == ESC_KEY)
         exiting(r);
     else
