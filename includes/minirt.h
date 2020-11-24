@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/23 19:41:12 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/24 16:50:14 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct  s_minirt
     t_vec       inter_point;
     int         current_cam;
     float       iar;
+    t_vec       normal;
 }               t_minirt;
 
 //minirt.c
@@ -141,6 +142,7 @@ void    sphere(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    plane(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    square(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
+void	cylinder_cap(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 void    triangle(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 
 //objects_s
