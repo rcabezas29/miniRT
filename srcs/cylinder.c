@@ -6,11 +6,34 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 10:15:46 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/23 21:00:37 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/24 18:07:12 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+void	cylinder_cap(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
+{
+	t_inter s;
+
+	s.sub = suma_vec(obj->position, vec_mult(obj->normal, obj->height / 2));
+	s.t1 = (dot_product(obj->normal, cam_ray.dir) + vector_length(s.sub)) / dot_product(obj->normal, cam_ray.dir);
+	s.t2 = (dot_product(obj->normal, cam_ray.dir) - vector_length(s.sub)) / dot_product(obj->normal, cam_ray.dir);
+	s.d1 = vector_length(resta_vec(s.sub, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t1)))):
+	s.d2 = vector_length(resta_vec(s.sub, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t2)))):
+	if (s.t1 > 0 && s.d1 < obj->diameter / 2 && s.t1 < r->a)
+	{
+		r->a = s.t1;
+    	r->obj = tmp->content;
+		r->normal = obj->normal;
+	}
+	if (s.t2 > 0 && s.d2 < obj->diameter / 2 && s.t2 < r->a)
+	{
+		r->a = s.t2;
+    	r->obj = tmp->content;
+		r->normal = vec_mult(obj->normal, -1);
+	}
+}
 
 t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point)
 {
@@ -38,7 +61,6 @@ t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point)
 	{
 		normal = vec_cyl;
 	}
-	
 	return (normal);
 }
 
@@ -55,14 +77,22 @@ void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 	s.det = sqrt(pow(s.b, 2) - 4 * s.a * s.c);
 	s.t1 = (-s.b + s.det) / (2 * s.a);
 	s.t2 = (-s.b - s.det) / (2 * s.a);
-	if (s.t1 > 0 && s.t1 < r->a)
+	s.v1 = vec_mult(suma_vec(cam_ray.origin, cam_ray.dir), s.t1);
+	s.v2 = vec_mult(suma_vec(cam_ray.origin, cam_ray.dir), s.t2);
+	if (s.t1 > 0 && s.t1 < r->a && s.v1 < sqrt(suma_vec(pow(obj->diameter / 2, 2), pow(obj->height / 2, 2))))
 	{
 		r->a = s.t1;
     	r->obj = tmp->content;
+		r->normal = cylinder_normal(obj, s.d1);
 	}
-	if (s.t2 >= 0 && r->a > s.t2)
+	if (s.t2 >= 0 && r->a > s.t2 && s.v2 < sqrt(suma_vec(pow(obj->diameter / 2, 2), pow(obj->height / 2, 2))))
 	{
   		r->a = s.t2;
     	r->obj = tmp->content;
+		r->normal = cylinder_normal(obj, vec_mult(suma_vec(cam_ray.origin, cam_ray.dir), r->a));
+	}
+	else
+	{
+		cylinder_cap(r, obj, cam_ray, tmp);
 	}
 }
