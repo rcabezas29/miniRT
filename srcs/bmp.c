@@ -61,7 +61,7 @@ void    create_bmp(t_minirt *r, char *file_name)
 
     i = r->res.y;
     ft_bzero(padd, 3);
-    fd = open(file_name, O_CREAT | O_WRONLY, 0644);
+    fd = open(file_name, O_CREAT | O_WRONLY | O_TRUNC, 0644);
     bitmapfileheader(r, fd);
     bitmapinfoheader(r, fd);
     while (i >= 0)
