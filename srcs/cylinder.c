@@ -46,10 +46,11 @@ void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 {
   	t_inter s;
     
-	s.sub = resta_vec(dot_product(cam_ray,dir, cam_ray.dir), mult_fac(dot_product(cam_ray,dir, cam_ray.dir), dot_product(obj->normal, obj->normal)));
-	s.pvec = mult_fac(cam_ray.dir, resta_vec(resta_vec(vec_mult(cam_ray.origin, 2), vec_mult(obj->position, 2)), obj->normal));
+	s.sub = resta_vec(mult_fac(cam_ray.dir, cam_ray.dir), mult_fac(mult_fac(cam_ray.dir, cam_ray.dir), dot_product(obj->normal, obj->normal)));
+	s.a = s.sub.x + s.sub.y + s.sub.z;
+	s.pvec =  vec_mult(mult_fac(cam_ray.dir, resta_vec(resta_vec(mult_fac(obj->position, mult_fac(obj->normal, obj->normal)), mult_fac(cam_ray.origin, mult_fac(obj->normal, obj->normal))), cam_ray.origin), 2);
 	s.b = s.pvec.x + s.pvec.y + s.pvec.z;
-	s.tvec = resta_vec(mult_fac(resta_vec(cam_ray.origin, obj->position), resta_vec(cam_ray.origin, obj->position)), mult_fac(resta_vec(cam_ray.origin, obj->position), obj->normal));
+	s.tvec = mult_fac(mult_fac(obj->normal, obj->normal), resta_vec(resta_vec(vec_mult(mult_fac(obj->position, cam_ray.origin), 2), mult_fac(cam_ray.origin, cam_ray.origin)), mult_fac(obj->position, obj->position));
 	s.c = s.tvec.x + s.tvec.y + s.tvec.z - obj->diameter / 2;
 	s.det = sqrt(pow(s.b, 2) - 4 * s.a * s.c);
 	s.t1 = (-s.b + s.det) / (2 * s.a);
