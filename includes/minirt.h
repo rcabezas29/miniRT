@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/24 16:50:14 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/24 18:35:32 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@
 #  define RIGHT_KEY 124
 #  define ESC_KEY 53
 #  define LEFT_SHIFT 257
+#  define ONE_KEY 18
+#  define TWO_KEY 19
+#  define THREE_KEY 20
+#  define FOUR_KEY 21
 #  define X_BTN 17
 # elif defined __unix__
 #  include "mlx_linux/mlx.h"
