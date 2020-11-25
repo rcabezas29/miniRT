@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/25 16:10:33 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/25 20:13:41 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,13 @@ void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void	cylinder_cap(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    triangle(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 
+
+void    sphere_s(t_minirt *r, t_object *obj, t_ray light_ray);
+void    plane_s(t_minirt *r, t_object *obj, t_ray light_ray);
+void    square_s(t_minirt *r, t_object *obj, t_ray light_ray);
+void    cylinder_s(t_minirt *r, t_object *obj, t_ray light_ray);
+void    triangle_s(t_minirt *r, t_object *obj, t_ray light_ray);
+
 //objects_s
 t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point);
 
@@ -169,5 +176,9 @@ int     key_press1(int keycode, t_minirt *r);
 void    create_bmp(t_minirt *r, char *file_name);
 void    bitmapinfoheader(t_minirt *r, int fd);
 void    create_bmp(t_minirt *r, char *file_name);
+
+//shadows.c
+float   shadows(t_minirt *r, float dot, t_ray light);
+void    objs_intersect_light(t_minirt *r, t_object *obj, t_ray light_ray);
 
 #endif

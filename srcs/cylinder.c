@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 10:15:46 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/25 18:04:05 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/25 20:10:22 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,31 @@ void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 	}
 	else
 		cylinder_cap(r, obj, cam_ray, tmp);
+}
+
+void    cylinder_s(t_minirt *r, t_object *obj, t_ray light_ray)
+{
+  	t_inter s;
+    
+	s.sub = resta_vec(light_ray.origin, obj->position);
+	s.cross = cross_product(light_ray.dir, obj->normal);
+	s.pvec = cross_product(s.sub, obj->normal);
+	s.a = dot_product(s.cross, s.cross);
+	s.b = 2 * dot_product(s.cross, s.pvec);
+	s.c = dot_product(s.pvec, s.pvec) - (pow(obj->diameter / 2, 2)
+		* dot_product(obj->normal, obj->normal));
+	s.det = pow(s.b, 2) - (4 * s.a * s.c);
+	if (s.det < 0)
+		return ;
+	s.a = 2 * s.a;
+	s.det = sqrt(s.det);
+	s.t1 = (-s.b - s.det) / s.a;
+	s.t2 = (-s.b + s.det) / s.a;
+	s.d1 = vector_length(resta_vec(obj->position, suma_vec(light_ray.origin, vec_mult(light_ray.dir, s.t1))));
+	s.d2 = vector_length(resta_vec(obj->position, suma_vec(light_ray.origin, vec_mult(light_ray.dir, s.t2))));
+	s.x = sqrt(pow(obj->diameter / 2, 2) + pow(obj->height / 2, 2));
+	if (s.t1 > 0 && s.t1 < r->b && s.d1 < s.x)
+		r->b = s.t1;
+	if (s.t2 >= 0 && r->b > s.t2 && s.d2 < s.x)
+  		r->b = s.t2;
 }
