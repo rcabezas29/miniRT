@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 20:36:40 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/11 18:49:17 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/24 18:44:52 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void    create_bmp(t_minirt *r, char *file_name)
 
     i = r->res.y;
     ft_bzero(padd, 3);
-    fd = open(file_name, O_CREAT | O_WRONLY | O_TRUNC, 0644);
+    fd = open(file_name, O_CREAT | O_WRONLY, 0644);
     bitmapfileheader(r, fd);
     bitmapinfoheader(r, fd);
     while (i >= 0)
