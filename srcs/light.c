@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 09:23:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/24 18:20:57 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/25 19:49:38 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,9 @@ t_color     raytrace_light(t_minirt *r)
 			tmp_lights = tmp_lights->next;
 			continue ;
 		}
+        dot = shadows(r, dot, light_ray);
         color = suma_color(color, color_mix(r->color, apply_intensity(light->ratio * dot, light->color)));
 		tmp_lights = tmp_lights->next;
     }
     return (color);
-}
-
-void    light_distance_to_object()
-{
-    
 }

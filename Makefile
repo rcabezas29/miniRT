@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/21 11:54:21 by rcabezas          #+#    #+#              #
-#    Updated: 2020/11/04 20:37:18 by rcabezas         ###   ########.fr        #
+#    Updated: 2020/11/25 19:38:36 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ CFLAGS = gcc -Wall -Wextra -Werror -g
 SRCS_MRT = 	minirt.c vector_operations.c handle_errors.c \
 			parse_file.c parse_objects.c parse_utils.c colors.c \
 			raytrace.c sphere.c plane.c square.c cylinder.c \
-			triangle.c light.c camera.c keyhook.c bmp.c
+			triangle.c light.c camera.c keyhook.c bmp.c shadows.c
 
 SRCS = $(addprefix srcs/, $(SRCS_MRT))
 
