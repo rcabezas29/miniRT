@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 10:15:46 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/25 20:10:22 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/25 21:00:05 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,21 @@ void    cylinder_s(t_minirt *r, t_object *obj, t_ray light_ray)
 		r->b = s.t1;
 	if (s.t2 >= 0 && r->b > s.t2 && s.d2 < s.x)
   		r->b = s.t2;
+	else
+		cylinder_cap_s(r, obj, light_ray);
+}
+
+void	cylinder_cap_s(t_minirt *r, t_object *obj, t_ray light_ray)
+{
+	t_inter s;
+
+	s.sub = suma_vec(obj->position, vec_mult(obj->normal, obj->height / 2));
+	s.t1 = (dot_product(obj->normal, light_ray.dir) + vector_length(s.sub)) / dot_product(obj->normal, light_ray.dir);
+	s.t2 = (dot_product(obj->normal, light_ray.dir) - vector_length(s.sub)) / dot_product(obj->normal, light_ray.dir);
+	s.d1 = vector_length(resta_vec(s.sub, suma_vec(light_ray.origin, vec_mult(light_ray.dir, s.t1))));
+	s.d2 = vector_length(resta_vec(s.sub, suma_vec(light_ray.origin, vec_mult(light_ray.dir, s.t2))));
+	if (s.t1 > 0 && s.d1 < obj->diameter / 2 && s.t1 < r->b)
+		r->b = s.t1;
+	if (s.t2 > 0 && s.d2 < obj->diameter / 2 && s.t2 < r->b)
+		r->b = s.t2;
 }
