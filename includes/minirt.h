@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/24 18:35:32 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:10:33 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ void    sphere(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    plane(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    square(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
-void	cylinder_cap(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
+void	cylinder_cap(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 void    triangle(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp);
 
 //objects_s

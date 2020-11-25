@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 10:15:46 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/24 18:07:12 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:04:05 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	cylinder_cap(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 	s.sub = suma_vec(obj->position, vec_mult(obj->normal, obj->height / 2));
 	s.t1 = (dot_product(obj->normal, cam_ray.dir) + vector_length(s.sub)) / dot_product(obj->normal, cam_ray.dir);
 	s.t2 = (dot_product(obj->normal, cam_ray.dir) - vector_length(s.sub)) / dot_product(obj->normal, cam_ray.dir);
-	s.d1 = vector_length(resta_vec(s.sub, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t1)))):
-	s.d2 = vector_length(resta_vec(s.sub, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t2)))):
+	s.d1 = vector_length(resta_vec(s.sub, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t1))));
+	s.d2 = vector_length(resta_vec(s.sub, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t2))));
 	if (s.t1 > 0 && s.d1 < obj->diameter / 2 && s.t1 < r->a)
 	{
 		r->a = s.t1;
@@ -68,31 +68,35 @@ void    cylinder(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 {
   	t_inter s;
     
-	s.sub = resta_vec(mult_fac(cam_ray.dir, cam_ray.dir), mult_fac(mult_fac(cam_ray.dir, cam_ray.dir), dot_product(obj->normal, obj->normal)));
-	s.a = s.sub.x + s.sub.y + s.sub.z;
-	s.pvec =  vec_mult(mult_fac(cam_ray.dir, resta_vec(resta_vec(mult_fac(obj->position, mult_fac(obj->normal, obj->normal)), mult_fac(cam_ray.origin, mult_fac(obj->normal, obj->normal))), cam_ray.origin), 2);
-	s.b = s.pvec.x + s.pvec.y + s.pvec.z;
-	s.tvec = mult_fac(mult_fac(obj->normal, obj->normal), resta_vec(resta_vec(vec_mult(mult_fac(obj->position, cam_ray.origin), 2), mult_fac(cam_ray.origin, cam_ray.origin)), mult_fac(obj->position, obj->position));
-	s.c = s.tvec.x + s.tvec.y + s.tvec.z - obj->diameter / 2;
-	s.det = sqrt(pow(s.b, 2) - 4 * s.a * s.c);
-	s.t1 = (-s.b + s.det) / (2 * s.a);
-	s.t2 = (-s.b - s.det) / (2 * s.a);
-	s.v1 = vec_mult(suma_vec(cam_ray.origin, cam_ray.dir), s.t1);
-	s.v2 = vec_mult(suma_vec(cam_ray.origin, cam_ray.dir), s.t2);
-	if (s.t1 > 0 && s.t1 < r->a && s.v1 < sqrt(suma_vec(pow(obj->diameter / 2, 2), pow(obj->height / 2, 2))))
+	s.sub = resta_vec(cam_ray.origin, obj->position);
+	s.cross = cross_product(cam_ray.dir, obj->normal);
+	s.pvec = cross_product(s.sub, obj->normal);
+	s.a = dot_product(s.cross, s.cross);
+	s.b = 2 * dot_product(s.cross, s.pvec);
+	s.c = dot_product(s.pvec, s.pvec) - (pow(obj->diameter / 2, 2)
+		* dot_product(obj->normal, obj->normal));
+	s.det = pow(s.b, 2) - (4 * s.a * s.c);
+	if (s.det < 0)
+		return ;
+	s.a = 2 * s.a;
+	s.det = sqrt(s.det);
+	s.t1 = (-s.b - s.det) / s.a;
+	s.t2 = (-s.b + s.det) / s.a;
+	s.d1 = vector_length(resta_vec(obj->position, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t1))));
+	s.d2 = vector_length(resta_vec(obj->position, suma_vec(cam_ray.origin, vec_mult(cam_ray.dir, s.t2))));
+	s.x = sqrt(pow(obj->diameter / 2, 2) + pow(obj->height / 2, 2));
+	if (s.t1 > 0 && s.t1 < r->a && s.d1 < s.x)
 	{
 		r->a = s.t1;
     	r->obj = tmp->content;
-		r->normal = cylinder_normal(obj, s.d1);
+		r->normal = cylinder_normal(obj, vec_mult(suma_vec(cam_ray.origin, cam_ray.dir), r->a));
 	}
-	if (s.t2 >= 0 && r->a > s.t2 && s.v2 < sqrt(suma_vec(pow(obj->diameter / 2, 2), pow(obj->height / 2, 2))))
+	if (s.t2 >= 0 && r->a > s.t2 && s.d2 < s.x)
 	{
   		r->a = s.t2;
     	r->obj = tmp->content;
 		r->normal = cylinder_normal(obj, vec_mult(suma_vec(cam_ray.origin, cam_ray.dir), r->a));
 	}
 	else
-	{
 		cylinder_cap(r, obj, cam_ray, tmp);
-	}
 }
