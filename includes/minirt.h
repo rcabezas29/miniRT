@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/25 20:13:41 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/11/25 21:00:28 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ void    plane_s(t_minirt *r, t_object *obj, t_ray light_ray);
 void    square_s(t_minirt *r, t_object *obj, t_ray light_ray);
 void    cylinder_s(t_minirt *r, t_object *obj, t_ray light_ray);
 void    triangle_s(t_minirt *r, t_object *obj, t_ray light_ray);
+void	cylinder_cap_s(t_minirt *r, t_object *obj, t_ray light_ray);
 
 //objects_s
 t_vec	cylinder_normal(t_object *cylinder, t_vec inter_point);
