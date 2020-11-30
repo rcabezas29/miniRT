@@ -1,7 +1,0 @@
-*.o
-.DS_Store
-*.a
-*.swp
-miniRT
-libmlx.dylib
-*.bmp
