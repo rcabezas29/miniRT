@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:06:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/24 18:38:02 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/01 17:22:55 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int     key_press1(int keycode, t_minirt *r)
 {
     if (keycode == W_KEY)
-        r->camera->position.y++;
+        r->camera->position.z++;
     else if (keycode == S_KEY)
-        r->camera->position.y--;
+        r->camera->position.z--;
     else if (keycode == A_KEY)
         r->camera->position.x--;
     else if (keycode == D_KEY)

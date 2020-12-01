@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 09:23:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/30 19:57:05 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/01 17:19:34 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_color     raytrace_light(t_minirt *r)
         light_ray.origin = light->position;
         light_ray.dir = normalize_vec(resta_vec(r->inter_point, light->position));
         dot = dot_product(normal, light_ray.dir);
-        if (r->obj->id == 1 || r->obj->id == 2)
+        if (r->obj->id == 1 || r->obj->id == 2 || r->obj->id == 3 || r->obj->id == 5)
             dot = -dot;
         if (dot <= 0)
 		{

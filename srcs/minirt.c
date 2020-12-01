@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/30 20:36:04 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/01 17:40:27 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void    refresh_window(t_minirt *r)
 {
+    select_cam(r);
     setup_ray(r);
     raytrace_start(r);
     mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, r->camera->image.ptr, 0, 0);
