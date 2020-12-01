@@ -36,7 +36,7 @@ void    select_cam(t_minirt *r)
     int i;
     t_list *tmp;
 
-    i = 0;
+    i = 1;
     tmp = r->cam_list;
     while (tmp)
     {
