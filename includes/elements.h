@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:36:54 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/02 11:37:33 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/01 17:51:42 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ typedef struct	s_image
 {
 	void	*ptr;
 	char	*addr;
-	int 	bpp;
+	int		bpp;
 	int		line_length;
 	int		endian;
-	
 }				t_image;
 
 typedef struct	s_ray
