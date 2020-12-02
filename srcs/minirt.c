@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 17:08:59 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 19:42:40 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ int		main(int argc, char **argv)
 	if (r->save == 1)
 		create_bmp(r, BMP_FILE);
 	create_window(r);
+	system("leaks minirt");
 	return (1);
 }
