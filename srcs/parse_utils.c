@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 09:13:32 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/09/28 09:30:14 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:20:47 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ char	**free_split(char **split)
 
 t_color	split_rgb(char *rgb)
 {
-	t_color c;
-	char **split;
+	t_color	c;
+	char	**split;
 
 	split = ft_split(rgb, ',');
 	c.r = ft_atof(split[0]);
@@ -42,8 +42,8 @@ t_color	split_rgb(char *rgb)
 
 t_vec	split_vec(char *vec)
 {
-	t_vec v;
-	char **split;
+	t_vec	v;
+	char	**split;
 
 	split = ft_split(vec, ',');
 	v.x = ft_atof(split[0]);

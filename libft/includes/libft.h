@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 19:00:20 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/04 18:56:52 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:45:51 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#include "ft_printf.h"
-#include "get_next_line.h"
+# include "ft_printf.h"
+# include "get_next_line.h"
 
 typedef	struct	s_list
 {
@@ -75,6 +75,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void			ft_putchar(char c);
 int				ft_isupper(int c);
 void			ft_putstr(char *s);
-int 			ft_numlen(int i);
+int				ft_numlen(int i);
 int				ft_strcmp(char *s1, char *s2);
 #endif
