@@ -6,15 +6,15 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 11:20:04 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/11/25 20:10:50 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:38:30 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void    triangle(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
+void	triangle(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 {
-    t_inter	s;
+	t_inter	s;
 
 	s.v1 = resta_vec(obj->point2, obj->point1);
 	s.v2 = resta_vec(obj->point3, obj->point1);
@@ -39,9 +39,9 @@ void    triangle(t_minirt *r, t_object *obj, t_ray cam_ray, t_list *tmp)
 	}
 }
 
-void    triangle_s(t_minirt *r, t_object *obj, t_ray light_ray)
+void	triangle_s(t_minirt *r, t_object *obj, t_ray light_ray)
 {
-    t_inter	s;
+	t_inter	s;
 
 	s.v1 = resta_vec(obj->point2, obj->point1);
 	s.v2 = resta_vec(obj->point3, obj->point1);

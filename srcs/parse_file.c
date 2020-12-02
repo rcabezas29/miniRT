@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 08:36:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/14 11:06:15 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:15:52 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 void	check_id(t_minirt *r)
 {
 	if (!ft_strcmp(r->split[0], "R"))
-		parseRes(r);
+		parse_res(r);
 	if (!ft_strcmp(r->split[0], "A"))
-		parseAmbient(r);
+		parse_ambient(r);
 	if (!ft_strcmp(r->split[0], "c"))
-		parseCamera(r);
+		parse_camera(r);
 	if (!ft_strcmp(r->split[0], "l"))
-		parseLight(r);
+		parse_light(r);
 	if (!ft_strcmp(r->split[0], "pl"))
-		parsePlane(r);
+		parse_plane(r);
 	if (!ft_strcmp(r->split[0], "sp"))
-		parseSphere(r);
+		parse_sphere(r);
 	if (!ft_strcmp(r->split[0], "sq"))
-		parseSquare(r);
+		parse_square(r);
 	if (!ft_strcmp(r->split[0], "cy"))
-		parseCylinder(r);
+		parse_cylinder(r);
 	if (!ft_strcmp(r->split[0], "tr"))
-		parseTriangle(r);
+		parse_triangle(r);
 }
 
-void    parse_rtfile(char *rt_file, t_minirt *r)
+void	parse_rtfile(char *rt_file, t_minirt *r)
 {
-    int fd;
-		
+	int fd;
+
 	fd = open(rt_file, O_RDONLY);
 	while (get_next_line(fd, &r->line))
 	{
@@ -48,22 +48,22 @@ void    parse_rtfile(char *rt_file, t_minirt *r)
 	close(fd);
 }
 
-void	parseRes(t_minirt *r)
+void	parse_res(t_minirt *r)
 {
 	r->res.x = ft_atoi(r->split[1]);
 	r->res.y = ft_atoi(r->split[2]);
 }
 
-void	parseAmbient(t_minirt *r)
+void	parse_ambient(t_minirt *r)
 {
 	r->ambient.intensity = ft_atof(r->split[1]);
 	r->ambient.color = split_rgb(r->split[2]);
 }
 
-void	parseCamera(t_minirt *r)
+void	parse_camera(t_minirt *r)
 {
 	t_camera *camera;
-	
+
 	camera = malloc(sizeof(t_camera));
 	camera->position = split_vec(r->split[1]);
 	camera->orientation = split_vec(r->split[2]);
@@ -72,7 +72,7 @@ void	parseCamera(t_minirt *r)
 	r->numOfCams++;
 }
 
-void	parseLight(t_minirt *r)
+void	parse_light(t_minirt *r)
 {
 	t_object	*light;
 

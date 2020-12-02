@@ -6,17 +6,16 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:18:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/10/07 09:55:27 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:19:50 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-
-void	parseSphere(t_minirt *r)
+void	parse_sphere(t_minirt *r)
 {
-	t_object    *sphere;
-	
+	t_object	*sphere;
+
 	sphere = malloc(sizeof(t_object));
 	sphere->position = split_vec(r->split[1]);
 	sphere->diameter = ft_atof(r->split[2]);
@@ -26,9 +25,9 @@ void	parseSphere(t_minirt *r)
 	r->numOfObjects++;
 }
 
-void	parsePlane(t_minirt *r)
+void	parse_plane(t_minirt *r)
 {
-	t_object    *plane;
+	t_object	*plane;
 
 	plane = malloc(sizeof(t_object));
 	plane->position = split_vec(r->split[1]);
@@ -39,9 +38,9 @@ void	parsePlane(t_minirt *r)
 	r->numOfObjects++;
 }
 
-void	parseSquare(t_minirt *r)
+void	parse_square(t_minirt *r)
 {
-	t_object    *square;
+	t_object	*square;
 
 	square = malloc(sizeof(t_object));
 	square->position = split_vec(r->split[1]);
@@ -53,9 +52,9 @@ void	parseSquare(t_minirt *r)
 	r->numOfObjects++;
 }
 
-void	parseCylinder(t_minirt *r)
+void	parse_cylinder(t_minirt *r)
 {
-	t_object    *cylinder;
+	t_object	*cylinder;
 
 	cylinder = malloc(sizeof(t_object));
 	cylinder->position = split_vec(r->split[1]);
@@ -68,9 +67,9 @@ void	parseCylinder(t_minirt *r)
 	r->numOfObjects++;
 }
 
-void	parseTriangle(t_minirt *r)
+void	parse_triangle(t_minirt *r)
 {
-	t_object    *triangle;
+	t_object	*triangle;
 
 	triangle = malloc(sizeof(t_object));
 	triangle->point1 = split_vec(r->split[1]);

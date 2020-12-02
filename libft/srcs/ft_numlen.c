@@ -6,21 +6,21 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 12:23:16 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/07/27 12:25:32 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:55:03 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_numlen(int i)
+int	ft_numlen(int i)
 {
-    int len;
+	int len;
 
-    len = 1;
-    while (i >= 10 || i <= -10)
-    {
-        i = i / 10;
-        len++;
-    }
-    return (len);
+	len = 1;
+	while (i >= 10 || i <= -10)
+	{
+		i = i / 10;
+		len++;
+	}
+	return (len);
 }

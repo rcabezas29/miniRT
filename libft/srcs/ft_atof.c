@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atof.c                                             :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 12:20:10 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/07/28 12:28:39 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:51:16 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-float   ft_atof(char *str)
+float	ft_atof(char *str)
 {
-    float	atof;
+	float	atof;
 	int		atoi;
 	int		i;
 	int		fac;

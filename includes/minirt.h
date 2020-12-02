@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/01 17:57:22 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 17:14:55 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,15 +94,15 @@ int             exiting(t_minirt *r);
 void            parsing_objects_errors(t_minirt *r, int error);
 void	        check_id(t_minirt *r);
 void            parse_rtfile(char *rt_file, t_minirt *r);
-void	        parseRes(t_minirt *r);
-void	        parseAmbient(t_minirt *r);
-void	        parseCamera(t_minirt *r);
-void	        parseLight(t_minirt *r);
-void	        parsePlane(t_minirt *r);
-void	        parseSphere(t_minirt *r);
-void	        parseSquare(t_minirt *r);
-void	        parseCylinder(t_minirt *r);
-void	        parseTriangle(t_minirt *r);
+void	        parse_res(t_minirt *r);
+void	        parse_ambient(t_minirt *r);
+void	        parse_camera(t_minirt *r);
+void	        parse_light(t_minirt *r);
+void	        parse_plane(t_minirt *r);
+void	        parse_sphere(t_minirt *r);
+void	        parse_square(t_minirt *r);
+void	        parse_cylinder(t_minirt *r);
+void	        parse_triangle(t_minirt *r);
 int             ft_count_split(char **split);
 char	        **free_split(char **split);
 t_color	        split_rgb(char *rgb);
