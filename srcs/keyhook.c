@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:06:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/01 19:23:31 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 19:34:26 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,42 @@ int	key_press1(int keycode, t_minirt *r)
 		r->current_cam = 3;
 	else if (keycode == FOUR_KEY)
 		r->current_cam = 4;
+	else if (keycode == UP_KEY)
+		move_objs(r, keycode);
+	else if (keycode == DOWN_KEY)
+		move_objs(r, keycode);
+	else if (keycode == RIGHT_KEY)
+		move_objs(r, keycode);
+	else if (keycode == LEFT_KEY)
+		move_objs(r, keycode);
+	else if (keycode == Z_KEY)
+		move_objs(r, keycode);
+	else if (keycode == X_KEY)
+		move_objs(r, keycode);
+	else if (keycode == P_KEY)
+		rotate_objs(r, keycode);
+	else if (keycode == O_KEY)
+		rotate_objs(r, keycode);
+	else if (keycode == I_KEY)
+		rotate_objs(r, keycode);
+	else if (keycode == L_KEY)
+		rotate_objs(r, keycode);
+	else if (keycode == K_KEY)
+		rotate_objs(r, keycode);
+	else if (keycode == J_KEY)
+		rotate_objs(r, keycode);
+	else if (keycode == R_KEY)
+		move_lights(r, keycode);
+	else if (keycode == T_KEY)
+		move_lights(r, keycode);
+	else if (keycode == Y_KEY)
+		move_lights(r, keycode);
+	else if (keycode == F_KEY)
+		move_lights(r, keycode);
+	else if (keycode == G_KEY)
+		move_lights(r, keycode);
+	else if (keycode == H_KEY)
+		move_lights(r, keycode);
 	else if (keycode == ESC_KEY)
 		exiting(r);
 	else

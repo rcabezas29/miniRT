@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 17:14:55 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/02 19:34:36 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,24 @@
 #  define TWO_KEY 19
 #  define THREE_KEY 20
 #  define FOUR_KEY 21
+#  define UP_KEY 126
+#  define DOWN_KEY 125
+#  define RIGHT_KEY 124
+#  define LEFT_KEY 123
+#  define Z_KEY 6
+#  define X_KEY 7
+#  define P_KEY 35
+#  define O_KEY 31
+#  define I_KEY 34
+#  define J_KEY 38
+#  define L_KEY 37
+#  define K_KEY 40
+#  define R_KEY 15
+#  define T_KEY 17
+#  define Y_KEY 16
+#  define F_KEY 3
+#  define G_KEY 5
+#  define H_KEY 4
 #  define X_BTN 17
 # elif defined __unix__
 #  include "mlx_linux/mlx.h"
@@ -150,4 +168,7 @@ void            bitmapinfoheader(t_minirt *r, int fd);
 void            bitmapfileheader(t_minirt *r, int fd);
 float           shadows(t_minirt *r, float dot, t_ray light);
 void            objs_intersect_light(t_minirt *r, t_object *obj, t_ray light_ray);
+void            move_objs(t_minirt *r, int key);
+void            rotate_objs(t_minirt *r, int key);
+void            move_lights(t_minirt *r, int key);
 #endif
