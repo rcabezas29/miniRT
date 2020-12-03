@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 19:42:40 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/03 18:33:09 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,20 @@ int		main(int argc, char **argv)
 	r = malloc(sizeof(t_minirt));
 	ft_bzero(r, sizeof(t_minirt));
 	if (argc < 2 || argc > 3)
-		handle_errors(r, 1);
+		handle_errors(1);
 	r->mlx_ptr = mlx_init();
 	if (argc == 2)
 	{
 		if (!check_format(argv[1], ".rt"))
-			handle_errors(r, 2);
+			handle_errors(2);
 		parse_rtfile(argv[1], r);
 	}
 	if (argc == 3)
 	{
 		if (!check_format(argv[2], ".rt"))
-			handle_errors(r, 2);
+			handle_errors(2);
 		if (ft_strncmp(argv[1], "--save", 6))
-			handle_errors(r, 3);
+			handle_errors(3);
 		else
 			r->save = 1;
 		parse_rtfile(argv[2], r);

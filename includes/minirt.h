@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 19:34:36 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/03 18:35:38 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ int             check_format(char *arg, char *format);
 void            create_window(t_minirt *r);
 void            setup_ray(t_minirt *r);
 void            refresh_window(t_minirt *r);
-void            handle_errors(t_minirt *rt, int error);
+void            handle_errors(int error);
 int             exiting(t_minirt *r);
-void            parsing_objects_errors(t_minirt *r, int error);
+void            parsing_objects_errors(int error);
 void	        check_id(t_minirt *r);
 void            parse_rtfile(char *rt_file, t_minirt *r);
 void	        parse_res(t_minirt *r);

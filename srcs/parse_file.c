@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 08:36:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 20:35:09 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/03 17:01:31 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	parse_rtfile(char *rt_file, t_minirt *r)
 void	parse_res(t_minirt *r)
 {
 	r->res.x = ft_atoi(r->split[1]);
-	if (res.x > 2560)
-		res.x = 2560;
+	if (r->res.x > 2560)
+		r->res.x = 2560;
 	r->res.y = ft_atoi(r->split[2]);
-	if (res.y > 1440)
-		res.y = 1440;
+	if (r->res.y > 1440)
+		r->res.y = 1440;
 }
 
 void	parse_ambient(t_minirt *r)
