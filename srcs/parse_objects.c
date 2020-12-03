@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:18:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 17:19:50 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/03 19:26:33 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	parse_sphere(t_minirt *r)
 {
 	t_object	*sphere;
 
-	sphere = malloc(sizeof(t_object));
+	if (!(sphere = malloc(sizeof(t_object))))
+		parsing_objects_errors(1);
 	sphere->position = split_vec(r->split[1]);
 	sphere->diameter = ft_atof(r->split[2]);
 	sphere->color = split_rgb(r->split[3]);
@@ -29,7 +30,8 @@ void	parse_plane(t_minirt *r)
 {
 	t_object	*plane;
 
-	plane = malloc(sizeof(t_object));
+	if (!(plane = malloc(sizeof(t_object))))
+		parsing_objects_errors(2);
 	plane->position = split_vec(r->split[1]);
 	plane->normal = split_vec(r->split[2]);
 	plane->color = split_rgb(r->split[3]);
@@ -42,7 +44,8 @@ void	parse_square(t_minirt *r)
 {
 	t_object	*square;
 
-	square = malloc(sizeof(t_object));
+	if (!(square = malloc(sizeof(t_object))))
+		parsing_objects_errors(3);
 	square->position = split_vec(r->split[1]);
 	square->normal = split_vec(r->split[2]);
 	square->height = ft_atof(r->split[3]);
@@ -56,7 +59,8 @@ void	parse_cylinder(t_minirt *r)
 {
 	t_object	*cylinder;
 
-	cylinder = malloc(sizeof(t_object));
+	if (!(cylinder = malloc(sizeof(t_object))))
+		parsing_objects_errors(4);
 	cylinder->position = split_vec(r->split[1]);
 	cylinder->normal = split_vec(r->split[2]);
 	cylinder->diameter = ft_atof(r->split[3]);
@@ -71,7 +75,8 @@ void	parse_triangle(t_minirt *r)
 {
 	t_object	*triangle;
 
-	triangle = malloc(sizeof(t_object));
+	if (!(triangle = malloc(sizeof(t_object))))
+		parsing_objects_errors(5);
 	triangle->point1 = split_vec(r->split[1]);
 	triangle->point2 = split_vec(r->split[2]);
 	triangle->point3 = split_vec(r->split[3]);
