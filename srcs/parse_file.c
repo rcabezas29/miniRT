@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 08:36:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/03 17:01:31 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/06 17:26:28 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	parse_rtfile(char *rt_file, t_minirt *r)
 		r->split = ft_split(r->line, ' ');
 		check_id(r);
 		r->split = free_split(r->split);
+		free(r->line);
 	}
 	close(fd);
 }

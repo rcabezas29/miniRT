@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/21 11:54:21 by rcabezas          #+#    #+#              #
-#    Updated: 2020/12/02 18:53:49 by rcabezas         ###   ########.fr        #
+#    Updated: 2020/12/06 17:54:13 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ ifeq ($(UNAME_S), Linux)
     LIBS := -lm -lbsd -lX11 -lXext
     MLX = mlx_linux/libmlx.a
     MINILIBX = mlx_linux
-    INCLUDES = -I/usr/include -I. -Iincludes/ -I $(MINILIBX) -I $(LIBFT)
+    INCLUDES = -I/usr/include -I. -g3 -Iincludes/ -I $(MINILIBX) -I $(LIBFT)
 endif
 
 ifeq ($(UNAME_S), Darwin)
@@ -28,7 +28,7 @@ endif
 
 NAME = miniRT
 
-CFLAGS = gcc -Wall -Wextra -Werror -g
+CFLAGS = gcc -Werror -Wextra -Wall -g
 
 SRCS_MRT = 	minirt.c vector_operations.c handle_errors.c \
 			parse_file.c parse_objects.c parse_utils.c colors.c \
