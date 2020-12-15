@@ -6,80 +6,45 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 19:10:45 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/06 17:24:42 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/15 19:21:26 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static void		strdel(char **str)
+char *ft_strjoinb(char *s, char c)
 {
-	if (str != NULL && *str != NULL)
-	{
-		free(*str);
-		*str = NULL;
-	}
+    char *dest;
+    int i;
+
+    i = 0;
+    dest = malloc(ft_strlen(s) + 2);
+    while (s[i] != '\0')
+    {
+        dest[i] = s[i];
+        i++;
+    }
+    dest[i] = c;
+    dest[i + 1] = '\0';
+    free(s);
+    return (dest);
 }
 
-static int		readline(char **a, char **line, int fd)
+int get_next_line(int fd, char **line)
 {
-	int		len;
-	char	*aux;
+    int ret;
+    char *buf;
 
-	len = 0;
-	while (a[fd][len] != '\n')
-		len++;
-	*line = ft_substr(a[fd], 0, len);
-	aux = ft_strdup(&a[fd][len + 1]);
-	free(a[fd]);
-	a[fd] = aux;
-	return (1);
-}
-
-static int		output(char **a, char **line, int ret, int fd)
-{
-	if (ret < 0)
-		return (-1);
-	else if (ret == 0 && (a[fd] == NULL || a[fd][0] == '\0'))
-	{
-		*line = ft_strdup("");
-		strdel(&a[fd]);
-		return (0);
-	}
-	else if (ft_strchr(a[fd], '\n'))
-		return (readline(a, line, fd));
-	else
-	{
-		*line = ft_strdup(a[fd]);
-		strdel(&a[fd]);
-		return (0);
-	}
-}
-
-int				get_next_line(int fd, char **line)
-{
-	char		*tmp;
-	static char	*a[4096];
-	int			ret;
-	char		*buff;
-
-	if (fd < 0 || line == NULL || BUFFER_SIZE < 1 ||
-		(!(buff = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1))))
-		return (-1);
-	while ((ret = read(fd, buff, BUFFER_SIZE)) > 0)
-	{
-		buff[ret] = '\0';
-		if (a[fd] == NULL)
-			a[fd] = ft_strdup(buff);
-		else
-		{
-			tmp = ft_strjoin(a[fd], buff);
-			free(a[fd]);
-			a[fd] = tmp;
-		}
-		if (ft_strchr(a[fd], '\n'))
-			break ;
-	}
-	free(buff);
-	return (output(a, line, ret, fd));
+    ret = 0;
+    buf = malloc(2);
+    if (line == '\0' || !(*line = ft_strdup("")))
+        return (-1);
+    while ((ret = read(fd, buf, 1)) > 0)
+    {
+        if (buf[0] == '\n')
+            break ;
+        *line = ft_strjoinb(*line, buf[0]);
+    }
+    free(buf);
+    return (ret);
 }

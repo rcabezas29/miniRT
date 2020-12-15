@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/10 17:19:12 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/15 17:10:15 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	        parse_square(t_minirt *r);
 void	        parse_cylinder(t_minirt *r);
 void	        parse_triangle(t_minirt *r);
 int             ft_count_split(char **split);
-char	        **free_split(char **split);
+void	        free_split(char **split);
 t_color	        split_rgb(char *rgb);
 t_vec	        split_vec(char *vec);
 float           vector_length(t_vec v);
@@ -171,5 +171,4 @@ void            objs_intersect_light(t_minirt *r, t_object *obj, t_ray light_ray
 void            move_objs(t_minirt *r, int key);
 void            rotate_objs(t_minirt *r, int key);
 void            move_lights(t_minirt *r, int key);
-void            free_lists(t_minirt *r);
 #endif

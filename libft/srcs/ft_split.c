@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 19:59:10 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 20:04:05 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/14 16:48:58 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char			**ft_split(const char *s, char c)
 	if (!(a = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1))))
 	{
 		return (NULL);
-		free(*a);
+		free(a);
 	}
 	i = 0;
 	while (*s)

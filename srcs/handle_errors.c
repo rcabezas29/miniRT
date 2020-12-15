@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:57:34 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/10 18:39:15 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/15 19:23:58 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ void    parsing_objects_errors(int error)
 
 int     exiting(t_minirt *r)
 {
-    free_lists(r);
+    ft_lstclear(&r->cam_list, free);
+    ft_lstclear(&r->object_list, free);
+    ft_lstclear(&r->light_list, free);
     mlx_clear_window(r->mlx_ptr, r->win_ptr);
     mlx_destroy_window(r->mlx_ptr, r->win_ptr);
     system("leaks miniRT");
