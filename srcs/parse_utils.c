@@ -6,13 +6,13 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 09:13:32 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/06 17:07:50 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/15 18:37:59 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-char	**free_split(char **split)
+void	free_split(char **split)
 {
 	int i;
 
@@ -25,7 +25,6 @@ char	**free_split(char **split)
 	}
 	free(split);
 	split = NULL;
-	return (split);
 }
 
 t_color	split_rgb(char *rgb)

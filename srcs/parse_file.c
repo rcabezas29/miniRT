@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 08:36:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/06 17:26:28 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/15 19:23:25 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	check_id(t_minirt *r)
 		parse_cylinder(r);
 	if (!ft_strcmp(r->split[0], "tr"))
 		parse_triangle(r);
+	else
+		return ;
 }
 
 void	parse_rtfile(char *rt_file, t_minirt *r)
@@ -39,13 +41,16 @@ void	parse_rtfile(char *rt_file, t_minirt *r)
 	int fd;
 
 	fd = open(rt_file, O_RDONLY);
-	while (get_next_line(fd, &r->line))
+	while (get_next_line(fd, &r->line) > 0)
 	{
 		r->split = ft_split(r->line, ' ');
 		check_id(r);
-		r->split = free_split(r->split);
+		free_split(r->split);
 		free(r->line);
+		r->line = NULL;
 	}
+	free(r->line);
+	r->line = NULL;
 	close(fd);
 }
 
