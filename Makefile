@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/21 11:54:21 by rcabezas          #+#    #+#              #
-#    Updated: 2020/12/15 17:20:07 by rcabezas         ###   ########.fr        #
+#    Updated: 2020/12/16 19:44:34 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS_MRT = 	minirt.c vector_operations.c handle_errors.c \
 			parse_file.c parse_objects.c parse_utils.c colors.c \
 			raytrace.c sphere.c plane.c square.c cylinder.c \
 			triangle.c light.c camera.c keyhook.c bmp.c shadows.c \
-			move_objs.c
+			move_objs.c cylinder_norm.c create.c vector_operations2.c
 
 SRCS = $(addprefix srcs/, $(SRCS_MRT))
 

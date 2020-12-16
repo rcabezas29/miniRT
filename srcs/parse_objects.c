@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:18:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 17:22:08 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 17:35:55 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	parse_sphere(t_minirt *r)
 	sphere->color = split_rgb(r->split[3]);
 	sphere->id = 1;
 	ft_lstadd_back(&r->object_list, ft_lstnew(sphere));
-	r->numOfObjects++;
 }
 
 void	parse_plane(t_minirt *r)
@@ -45,7 +44,6 @@ void	parse_plane(t_minirt *r)
 	plane->color = split_rgb(r->split[3]);
 	plane->id = 2;
 	ft_lstadd_back(&r->object_list, ft_lstnew(plane));
-	r->numOfObjects++;
 }
 
 void	parse_square(t_minirt *r)
@@ -65,7 +63,6 @@ void	parse_square(t_minirt *r)
 	square->color = split_rgb(r->split[4]);
 	square->id = 3;
 	ft_lstadd_back(&r->object_list, ft_lstnew(square));
-	r->numOfObjects++;
 }
 
 void	parse_cylinder(t_minirt *r)
@@ -87,7 +84,6 @@ void	parse_cylinder(t_minirt *r)
 	cylinder->color = split_rgb(r->split[5]);
 	cylinder->id = 4;
 	ft_lstadd_back(&r->object_list, ft_lstnew(cylinder));
-	r->numOfObjects++;
 }
 
 void	parse_triangle(t_minirt *r)
@@ -107,5 +103,4 @@ void	parse_triangle(t_minirt *r)
 	triangle->color = split_rgb(r->split[4]);
 	triangle->id = 5;
 	ft_lstadd_back(&r->object_list, ft_lstnew(triangle));
-	r->numOfObjects++;
 }

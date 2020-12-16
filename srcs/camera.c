@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/01 18:36:08 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/01 18:36:08 by rcabezas         ###   ########.fr       */
+/*   Created: 2020/12/16 19:41:29 by rcabezas          #+#    #+#             */
+/*   Updated: 2020/12/16 19:42:15 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	create_cameras(t_minirt *r)
 	{
 		r->camera = tmp->content;
 		r->camera->image.ptr = mlx_new_image(r->mlx_ptr, r->res.x, r->res.y);
-		r->camera->image.addr = mlx_get_data_addr(r->camera->image.ptr, 
-			&r->camera->image.bpp, &r->camera->image.line_length, 
+		r->camera->image.addr = mlx_get_data_addr(r->camera->image.ptr,
+			&r->camera->image.bpp, &r->camera->image.line_length,
 			&r->camera->image.endian);
 		setup_ray(r);
 		raytrace_start(r);
@@ -46,7 +46,7 @@ void	select_cam(t_minirt *r)
 		{
 			r->camera = tmp->content;
 			r->current_cam++;
-			if (r->current_cam == r->numOfCams)
+			if (r->current_cam == r->numofcams)
 				r->current_cam = 0;
 			return ;
 		}

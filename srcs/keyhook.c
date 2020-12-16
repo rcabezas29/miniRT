@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:06:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/14 18:28:31 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 18:58:58 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,15 @@ int	key_press1(int keycode, t_minirt *r)
 		r->current_cam = 3;
 	else if (keycode == FOUR_KEY)
 		r->current_cam = 4;
-	else if (keycode == UP_KEY)
+	else
+		key_press2(keycode, r);
+	refresh_window(r);
+	return (1);
+}
+
+int	key_press2(int keycode, t_minirt *r)
+{
+	if (keycode == UP_KEY)
 		move_objs(r, keycode);
 	else if (keycode == DOWN_KEY)
 		move_objs(r, keycode);
@@ -52,7 +60,15 @@ int	key_press1(int keycode, t_minirt *r)
 		rotate_objs(r, keycode);
 	else if (keycode == I_KEY)
 		rotate_objs(r, keycode);
-	else if (keycode == L_KEY)
+	else
+		key_press3(keycode, r);
+	refresh_window(r);
+	return (1);
+}
+
+int	key_press3(int keycode, t_minirt *r)
+{
+	if (keycode == L_KEY)
 		rotate_objs(r, keycode);
 	else if (keycode == K_KEY)
 		rotate_objs(r, keycode);
