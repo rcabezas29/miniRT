@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:18:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 17:35:55 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 20:58:35 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	parse_plane(t_minirt *r)
 		parsing_objects_errors(2);
 	check_comas(r->split[1], 2);
 	plane->position = split_vec(r->split[1]);
-	check_comas(r->split[2], 0);
+	check_comas(r->split[2], 2);
 	plane->normal = split_vec(r->split[2]);
 	check_comas(r->split[3], 2);
 	plane->color = split_rgb(r->split[3]);
