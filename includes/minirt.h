@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 21:10:53 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 21:38:29 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void			cylinder_s(t_minirt *r, t_object *obj, t_ray light_ray);
 void			triangle_s(t_minirt *r, t_object *obj, t_ray light_ray);
 t_vec			cylinder_normal(t_object *cylinder, t_vec inter_point);
 t_color			raytrace_light(t_minirt *r);
-t_color			apply_intensity(float intensity, t_color color);
+t_color			inten(float intensity, t_color color);
 void			light_intersect(t_minirt *r, t_object *obj, t_ray light_ray);
 t_color			apply_light(t_minirt *r, t_ray light_ray, t_object *light,
 					t_color ori_color, t_vec normal);
@@ -182,4 +182,5 @@ t_inter			cylinder_calc(t_ray cam_ray, t_object *obj);
 void			bucle_lights(t_object *light, float dot, t_vec normal, t_ray light_ray);
 void			create(t_minirt *r);
 t_color			ambient_light(t_minirt *r);
+t_ray			init_light_ray(t_minirt *r, t_object *light);
 #endif
