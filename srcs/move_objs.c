@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 18:49:01 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 19:26:20 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 20:06:22 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ void	rotate_objs(t_minirt *r, int key)
 	{
 		obj = tmp->content;
 		if (obj->id == 1 || obj->id == 5)
+		{
+			tmp = tmp->next;
 			continue ;
+		}
 		if (key == 35)
 			obj->normal.x += 0.1;
 		else if (key == 31)
