@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 19:38:34 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 17:49:33 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 17:41:46 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "libft.h"
-
-# ifndef BUFFER_SIZE
-# define BUFFER_SIZE 64
-# endif
 
 int		get_next_line(int fd, char **line);
 

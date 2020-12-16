@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/15 18:27:36 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 19:19:38 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	create_window(t_minirt *r)
 {
 	r->win_ptr = mlx_new_window(r->mlx_ptr, r->res.x, r->res.y, "window");
 	mlx_put_image_to_window(r->mlx_ptr, r->win_ptr, r->camera->image.ptr, 0, 0);
-	mlx_destroy_image(r->mlx_ptr, r->camera->image.ptr);
 	mlx_hook(r->win_ptr, 17, 0, exiting, r);
 	mlx_hook(r->win_ptr, KEY_PRESS, 0, &key_press1, r);
 	mlx_loop(r->mlx_ptr);
@@ -62,17 +61,18 @@ int		check_format(char *arg, char *format)
 
 int		main(int argc, char **argv)
 {
-	t_minirt	r;
+	t_minirt	*r;
 
-	ft_bzero(&r, sizeof(t_minirt));
+	r = malloc(sizeof(t_minirt));
+	ft_bzero(r, sizeof(t_minirt));
 	if (argc < 2 || argc > 3)
 		handle_errors(1);
-	r.mlx_ptr = mlx_init();
+	r->mlx_ptr = mlx_init();
 	if (argc == 2)
 	{
 		if (!check_format(argv[1], ".rt"))
 			handle_errors(2);
-		parse_rtfile(argv[1], &r);
+		parse_rtfile(argv[1], r);
 	}
 	if (argc == 3)
 	{
@@ -81,13 +81,9 @@ int		main(int argc, char **argv)
 		if (ft_strncmp(argv[1], "--save", 6))
 			handle_errors(3);
 		else
-			r.save = 1;
-		parse_rtfile(argv[2], &r);
+			r->save = 1;
+		parse_rtfile(argv[2], r);
 	}
-	create_cameras(&r);
-	select_cam(&r);
-	if (r.save == 1)
-		create_bmp(&r, BMP_FILE);
-	create_window(&r);
+	create(r);
 	return (1);
 }

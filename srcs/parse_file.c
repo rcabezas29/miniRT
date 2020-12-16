@@ -6,35 +6,11 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 08:36:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 17:22:33 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 19:28:07 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-void	check_id(t_minirt *r)
-{
-	if (!ft_strcmp(r->split[0], "R"))
-		parse_res(r);
-	if (!ft_strcmp(r->split[0], "A"))
-		parse_ambient(r);
-	if (!ft_strcmp(r->split[0], "c"))
-		parse_camera(r);
-	if (!ft_strcmp(r->split[0], "l"))
-		parse_light(r);
-	if (!ft_strcmp(r->split[0], "pl"))
-		parse_plane(r);
-	if (!ft_strcmp(r->split[0], "sp"))
-		parse_sphere(r);
-	if (!ft_strcmp(r->split[0], "sq"))
-		parse_square(r);
-	if (!ft_strcmp(r->split[0], "cy"))
-		parse_cylinder(r);
-	if (!ft_strcmp(r->split[0], "tr"))
-		parse_triangle(r);
-	else
-		return ;
-}
 
 void	parse_rtfile(char *rt_file, t_minirt *r)
 {
@@ -87,7 +63,7 @@ void	parse_camera(t_minirt *r)
 	check_comas(r->split[3], 0);
 	camera->fov = atof(r->split[3]);
 	ft_lstadd_back(&r->cam_list, ft_lstnew(camera));
-	r->numOfCams++;
+	r->numofcams++;
 }
 
 void	parse_light(t_minirt *r)

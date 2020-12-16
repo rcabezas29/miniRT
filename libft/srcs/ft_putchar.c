@@ -6,13 +6,13 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 10:27:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/02 17:54:09 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 17:37:53 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_puthchar(char c)
+void	ft_puthchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }

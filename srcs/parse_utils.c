@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 09:13:32 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 17:10:28 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 19:29:19 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	free_split(char **split)
 	{
 		free(split[i]);
 		split[i] = NULL;
- 		i++;
+		i++;
 	}
 	free(split);
 	split = NULL;
