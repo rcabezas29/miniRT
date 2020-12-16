@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/15 17:10:15 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 17:08:08 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,4 +171,6 @@ void            objs_intersect_light(t_minirt *r, t_object *obj, t_ray light_ray
 void            move_objs(t_minirt *r, int key);
 void            rotate_objs(t_minirt *r, int key);
 void            move_lights(t_minirt *r, int key);
+void            check_comas(char *s, int n);
+void	        num_characteristics(char **s, int n);
 #endif
