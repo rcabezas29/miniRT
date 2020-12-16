@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 19:19:04 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 21:10:53 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,8 +149,6 @@ void			square(t_minirt *r, t_object *obj,
 					t_ray cam_ray, t_list *tmp);
 void			cylinder(t_minirt *r, t_object *obj,
 					t_ray cam_ray, t_list *tmp);
-void			cylinder_cap(t_minirt *r, t_object *obj,
-					t_ray cam_ray, t_list *tmp);
 void			triangle(t_minirt *r, t_object *obj,
 					t_ray cam_ray, t_list *tmp);
 void			sphere_s(t_minirt *r, t_object *obj, t_ray light_ray);
@@ -158,7 +156,6 @@ void			plane_s(t_minirt *r, t_object *obj, t_ray light_ray);
 void			square_s(t_minirt *r, t_object *obj, t_ray light_ray);
 void			cylinder_s(t_minirt *r, t_object *obj, t_ray light_ray);
 void			triangle_s(t_minirt *r, t_object *obj, t_ray light_ray);
-void			cylinder_cap_s(t_minirt *r, t_object *obj, t_ray light_ray);
 t_vec			cylinder_normal(t_object *cylinder, t_vec inter_point);
 t_color			raytrace_light(t_minirt *r);
 t_color			apply_intensity(float intensity, t_color color);
@@ -184,4 +181,5 @@ void			num_characteristics(char **s, int n);
 t_inter			cylinder_calc(t_ray cam_ray, t_object *obj);
 void			bucle_lights(t_object *light, float dot, t_vec normal, t_ray light_ray);
 void			create(t_minirt *r);
+t_color			ambient_light(t_minirt *r);
 #endif
