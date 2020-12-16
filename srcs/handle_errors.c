@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:57:34 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/15 19:23:58 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 17:04:20 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void    handle_errors(int error)
         ft_putstr_fd("ERROR\nNo has pasado un archivo válido", 1);
     if (error == 3)
         ft_putstr_fd("ERROR\nEl 1º argumento no es --save", 1);
+    if (error == 4)
+        ft_putstr_fd("ERROR\nError en las características de alguno de los objetos", 1);
+    if (error == 5)
+        ft_putstr_fd("ERROR\nEl número de caracterísicas de alguno de los objetos es erróneo", 1);
     exit(EXIT_SUCCESS);
 }
 

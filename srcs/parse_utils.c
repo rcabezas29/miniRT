@@ -6,11 +6,39 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 09:13:32 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/15 18:37:59 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/16 17:10:28 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+void	num_characteristics(char **s, int n)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	if (i != n)
+		handle_errors(5);
+}
+
+void	check_comas(char *s, int n)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] == ',')
+			j++;
+		i++;
+	}
+	if (j != n)
+		handle_errors(4);
+}
 
 void	free_split(char **split)
 {
