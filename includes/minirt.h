@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 21:38:29 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/17 16:58:32 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,8 @@ void			move_lights(t_minirt *r, int key);
 void			check_comas(char *s, int n);
 void			num_characteristics(char **s, int n);
 t_inter			cylinder_calc(t_ray cam_ray, t_object *obj);
-void			bucle_lights(t_object *light, float dot, t_vec normal, t_ray light_ray);
+void			bucle_lights(t_object *light, float dot, t_vec normal,
+					t_ray light_ray);
 void			create(t_minirt *r);
 t_color			ambient_light(t_minirt *r);
 t_ray			init_light_ray(t_minirt *r, t_object *light);
