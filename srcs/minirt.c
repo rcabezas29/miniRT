@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 08:55:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 19:19:38 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/18 20:08:24 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	setup_ray(t_minirt *r)
 	r->iar = (float)r->res.x / (float)r->res.y;
 	r->camera->right = cross_product(normalize_vec(r->camera->orientation),
 		r->camera->up);
+	if (r->camera->right.x == 0 && r->camera->right.y == 0 && r->camera->right.z == 0)
+		r->camera->right.x = 1;
 	r->camera->up = cross_product(r->camera->right,
 		normalize_vec(r->camera->orientation));
 	r->a = 0;
