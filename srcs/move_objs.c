@@ -6,39 +6,26 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 18:49:01 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/17 17:03:18 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/22 21:01:58 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	move_objs(t_minirt *r, int key)
+void		move_objs(t_minirt *r, int key)
 {
-	t_list		*tmp;
 	t_object	*obj;
 
-	obj = NULL;
-	tmp = r->object_list;
-	while (tmp)
-	{
-		obj = tmp->content;
-		if (key == 126)
-			obj->position.y++;
-		else if (key == 125)
-			obj->position.y--;
-		else if (key == 124)
-			obj->position.x++;
-		else if (key == 123)
-			obj->position.x--;
-		else if (key == 6)
-			obj->position.z++;
-		else if (key == 7)
-			obj->position.z--;
-		tmp = tmp->next;
-	}
+	obj = choose_obj(r);
+	key == 124 ? obj->position.x += 1 : 0;
+	key == 126 ? obj->position.y += 1 : 0;
+	key == 6 ? obj->position.z += 1 : 0;
+	key == 123 ? obj->position.x -= 1 : 0;
+	key == 125 ? obj->position.y -= 1 : 0;
+	key == 7 ? obj->position.z -= 1 : 0;
 }
 
-void	rotate_objs(t_minirt *r, int key)
+void		rotate_objs(t_minirt *r, int key)
 {
 	t_list		*tmp;
 	t_object	*obj;
@@ -63,7 +50,7 @@ void	rotate_objs(t_minirt *r, int key)
 	}
 }
 
-void	move_lights(t_minirt *r, int key)
+void		move_lights(t_minirt *r, int key)
 {
 	t_list		*tmp;
 	t_object	*light;
@@ -87,4 +74,21 @@ void	move_lights(t_minirt *r, int key)
 			light->position.z--;
 		tmp = tmp->next;
 	}
+}
+
+t_object	*choose_obj(t_minirt *r)
+{
+	t_object	*obj;
+	int			i;
+	t_list		*tmp;
+
+	i = 0;
+	tmp = r->object_list;
+	while (i < r->obj_to_move && tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	obj = tmp->content;
+	return (obj);
 }
