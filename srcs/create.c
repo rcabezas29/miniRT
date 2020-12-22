@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 19:17:55 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 19:34:44 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/22 21:07:25 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	create(t_minirt *r)
 	select_cam(r);
 	if (r->save == 1)
 		create_bmp(r, BMP_FILE);
-	create_window(r);
+	if (r->save == 0)
+		create_window(r);
 }
 
 void	check_id(t_minirt *r)
