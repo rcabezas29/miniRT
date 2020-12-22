@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 11:37:51 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/17 16:58:32 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/22 20:59:44 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@
 #  define F_KEY 3
 #  define G_KEY 5
 #  define H_KEY 4
+# define DASH_KEY 44
 #  define X_BTN 17
 # elif defined __unix__
 #  include "mlx_linux/mlx.h"
@@ -99,6 +100,7 @@ typedef struct	s_minirt
 	float		iar;
 	t_vec		normal;
 	int			numofcams;
+	int			obj_to_move;
 }				t_minirt;
 
 int				main(int argc, char **argv);
@@ -184,4 +186,5 @@ void			bucle_lights(t_object *light, float dot, t_vec normal,
 void			create(t_minirt *r);
 t_color			ambient_light(t_minirt *r);
 t_ray			init_light_ray(t_minirt *r, t_object *light);
+t_object		*choose_obj(t_minirt *r);
 #endif

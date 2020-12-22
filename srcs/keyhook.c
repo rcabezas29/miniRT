@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:06:33 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 18:58:58 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/22 21:02:42 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int	key_press1(int keycode, t_minirt *r)
 
 int	key_press2(int keycode, t_minirt *r)
 {
-	if (keycode == UP_KEY)
+	if (keycode == DASH_KEY)
+		r->obj_to_move++;
+	else if (keycode == UP_KEY)
 		move_objs(r, keycode);
 	else if (keycode == DOWN_KEY)
 		move_objs(r, keycode);
