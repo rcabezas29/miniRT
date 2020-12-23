@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 11:18:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 20:58:35 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/23 09:46:08 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	parse_sphere(t_minirt *r)
 	sphere->position = split_vec(r->split[1]);
 	check_comas(r->split[2], 0);
 	sphere->diameter = ft_atof(r->split[2]);
+	if (sphere->diameter < 0)
+		handle_errors(6);
 	check_comas(r->split[3], 2);
 	sphere->color = split_rgb(r->split[3]);
 	sphere->id = 1;
@@ -59,6 +61,8 @@ void	parse_square(t_minirt *r)
 	square->normal = split_vec(r->split[2]);
 	check_comas(r->split[3], 0);
 	square->height = ft_atof(r->split[3]);
+	if (square->height < 0)
+		handle_errors(6);
 	check_comas(r->split[4], 2);
 	square->color = split_rgb(r->split[4]);
 	square->id = 3;
@@ -78,8 +82,12 @@ void	parse_cylinder(t_minirt *r)
 	cylinder->normal = split_vec(r->split[2]);
 	check_comas(r->split[3], 0);
 	cylinder->diameter = ft_atof(r->split[3]);
+	if (cylinder->diameter < 0)
+		handle_errors(6);
 	check_comas(r->split[4], 0);
 	cylinder->height = ft_atof(r->split[4]);
+	if (cylinder->height < 0)
+		handle_errors(6);
 	check_comas(r->split[5], 2);
 	cylinder->color = split_rgb(r->split[5]);
 	cylinder->id = 4;
