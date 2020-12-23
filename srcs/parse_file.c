@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 08:36:00 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 19:28:07 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/23 09:43:52 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	parse_res(t_minirt *r)
 	r->res.y = ft_atoi(r->split[2]);
 	if (r->res.y > 1440)
 		r->res.y = 1440;
+	if (r->res.x < 1 || r->res.y < 1)
+		handle_errors(6);
 }
 
 void	parse_ambient(t_minirt *r)
@@ -46,6 +48,8 @@ void	parse_ambient(t_minirt *r)
 	num_characteristics(r->split, 3);
 	check_comas(r->split[1], 0);
 	r->ambient.intensity = ft_atof(r->split[1]);
+	if (r->ambient.intensity < 0 || r->ambient.intensity > 1)
+		handle_errors(6);
 	check_comas(r->split[2], 2);
 	r->ambient.color = split_rgb(r->split[2]);
 }
@@ -76,6 +80,8 @@ void	parse_light(t_minirt *r)
 	light->position = split_vec(r->split[1]);
 	check_comas(r->split[2], 0);
 	light->ratio = ft_atof(r->split[2]);
+	if (light->ratio < 0 || light->ratio > 1)
+		handle_errors(6);
 	check_comas(r->split[3], 2);
 	light->color = split_rgb(r->split[3]);
 	ft_lstadd_back(&r->light_list, ft_lstnew(light));

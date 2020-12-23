@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:57:34 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/16 19:33:58 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/23 09:41:02 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	handle_errors(int error)
 		ft_putstr_fd("ERROR\nEn las características de los objetos", 1);
 	if (error == 5)
 		ft_putstr_fd("ERROR\nUn número de caracterísicas es erróneo", 1);
+	if (error == 6)
+		ft_putstr_fd("ERROR\nParámetro inválido", 1);
 	exit(EXIT_SUCCESS);
 }
 
