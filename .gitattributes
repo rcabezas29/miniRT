@@ -1,4 +1,2 @@
-# Swift gitattributes
-*.pbxproj merge=union
-*.swift   text
-*.3       text
+*.swift linguist-detectable=false
+*.3 linguist-detectable=false
