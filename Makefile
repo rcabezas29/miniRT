@@ -6,18 +6,11 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/21 11:54:21 by rcabezas          #+#    #+#              #
-#    Updated: 2020/12/22 19:39:10 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/05/19 11:45:37 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 UNAME_S := $(shell uname -s)
-
-ifeq ($(UNAME_S), Linux)
-    LIBS := -lm -lbsd -lX11 -lXext
-    MLX = mlx_linux/libmlx.a
-    MINILIBX = mlx_linux
-    INCLUDES = -I/usr/include -I. -g3 -Iincludes/ -I $(MINILIBX) -I $(LIBFT)
-endif
 
 ifeq ($(UNAME_S), Darwin)
     LIBS := -lz -framework OpenGL -framework Appkit
@@ -59,7 +52,6 @@ $(NAME) : $(OBJS)
 
 clean:
 	@$(RM) $(OBJS)
-	@make clean -C ./mlx_linux
 	@make clean -C ./mlx_ios
 	@make clean -C $(LIBFT)
 

@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 12:57:34 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/23 09:41:02 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/05/19 11:46:36 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int		exiting(t_minirt *r)
 	ft_lstclear(&r->light_list, free);
 	mlx_clear_window(r->mlx_ptr, r->win_ptr);
 	mlx_destroy_window(r->mlx_ptr, r->win_ptr);
-	system("leaks miniRT");
 	exit(EXIT_SUCCESS);
 	return (1);
 }
